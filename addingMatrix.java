@@ -17,6 +17,7 @@ public class addingMatrix {
                 array1_2d[i][j] = s.nextInt();
             }
 
+
         }
         System.out.println("Enter the 2nd Matrix Elements:");
 
@@ -28,6 +29,7 @@ public class addingMatrix {
                 array2_2d[i][j] = s.nextInt();
             }
 
+
         }
         //adding two matrices
        System.out.println("The addition of the matrices is:\n");
@@ -35,7 +37,7 @@ public class addingMatrix {
             for(int j=0;j<n;j++){
                 System.out.print(array1_2d[i][j] + array2_2d[i][j]+" ");
             }
-
+            System.out.print("\n");
         }
 
 

@@ -1,34 +1,51 @@
 import java.util.Scanner;
 
 public class calculations {
-    public static void main(String[] args){
-        double num1,num2,result=0.0;
-        char operator;
-
+    static double[] input(){
         Scanner s = new Scanner(System.in);
+        double[] db = new double[2];
         System.out.print ("Enter a number: ");
-        num1 = s.nextDouble();
-        System.out.print ("Enter operation (+, -, *, / and 0 to exit) : ");
-
-        operator = s.next().charAt(0);
+        db[0] = s.nextDouble();
         System.out.print ("Enter another number: ");
-        num2 = s.nextDouble();
-        switch (operator) {
-            case '+':
-                result = num1 + num2;
+        db[1] = s.nextDouble();
+        return db;
+    }
+
+
+    public static void main(String[] args){
+        double result=0.0;
+        double numAr[] = new double[2];
+        char menu,operator=' ';
+
+        System.out.print ("Enter 1 for Addition\n\t  2 for Substraction\n\t  3 for Multiplication\n\t  4 for division\n\t  0 for Exit :");
+        Scanner s = new Scanner(System.in);
+        menu = s.next().charAt(0);
+        
+        
+        switch (menu) {
+            case '1':
+                numAr = input();
+                result = numAr[0] + numAr[1];
+                operator = '+';
                 break;
 
-            case '-':
-                result = num1 - num2;
+            case '2':
+                numAr = input();
+                result = numAr[0] - numAr[1];
+                operator = '-';
                 break;
 
-            case '*':
-                result = num1 * num2;
+            case '3':
+                numAr = input();
+                result = numAr[0] * numAr[1];
+                operator = 'x';
                 break;
 
-            case '/':
+            case '4':
                 try{
-                    result = num1 / num2;
+                    numAr = input();
+                    result = numAr[0] / numAr[1];
+                    operator = '/';
                 }catch (Exception e){
                     System.out.print(e);
 
@@ -39,13 +56,13 @@ public class calculations {
                 System.exit(0);
                 break;
 
-            // operator doesn't match any case constant (+, -, *, /)
+            // menu doesn't match any case constant (+, -, *, /)
             default:
-                System.out.printf("Error! operator is not correct");
+                System.out.printf("Error! menu is not correct");
                 return;
         }
 
-        System.out.println(num1 + " " + operator + " " + num2 + " = " + result);
+        System.out.println(numAr[0] + " " + operator + " " + numAr[1] + " = " + result);
     }
 }
 
